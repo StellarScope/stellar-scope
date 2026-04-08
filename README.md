@@ -1,6 +1,31 @@
 # StellarScope
 
-Production-grade blockchain explorer for the Stellar network.
+The interpretation layer for Soroban — a block explorer that translates Stellar transactions into human-readable activity.
+
+## Overview
+
+StellarScope is a Soroban-native block explorer built for the next phase of the Stellar ecosystem. It provides a unified, human-readable interface for both classic Stellar operations and smart contract interactions.
+
+As Soroban introduces programmable finance to Stellar, existing tools expose low-level data but lack meaningful interpretation. StellarScope bridges this gap by decoding raw blockchain activity into clear, understandable financial actions.
+
+## The Problem
+
+Existing explorers such as StellarExpert provide strong support for classic Stellar operations (payments, trustlines, offers). However, Soroban smart contract activity remains difficult to interpret.
+
+While Soroban data is accessible via RPC and explorer interfaces:
+
+- Contract invocations are displayed as low-level XDR or minimally decoded structures
+- Event logs lack semantic meaning
+- There is no intent-based interpretation (e.g. swaps, lending, liquidations)
+- No unified view combines classic operations and Soroban activity
+
+Protocols like Soroswap, Blend, and Aquarius generate meaningful on-chain activity, but this activity is not surfaced in a human-readable or aggregated way.
+
+This creates a major usability gap for:
+
+- Developers debugging contracts
+- Users tracking transactions
+- Analysts understanding ecosystem activity
 
 ## Project Structure
 
@@ -153,22 +178,6 @@ docker-compose -f infrastructure/docker/docker-compose.yml down
 ## Configuration
 
 Environment variables are defined in `.env`. See `.env.example` for available options.
-
-## TODO
-
-- [ ] Implement XDR decoding logic
-- [ ] Setup database migrations
-- [ ] Implement transaction queries
-- [ ] Implement address queries
-- [ ] Setup blockchain data source connection
-- [ ] Implement indexing pipeline
-- [ ] Implement background job system
-- [ ] Add API authentication
-- [ ] Add frontend API integration
-- [ ] Add comprehensive error handling
-- [ ] Add monitoring and logging
-- [ ] Add integration tests
-- [ ] Add performance optimizations
 
 ## License
 
