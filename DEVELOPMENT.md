@@ -149,6 +149,37 @@ Logging is configured via `RUST_LOG` environment variable:
 ```bash
 RUST_LOG=debug cargo run -p api
 ```
+### Before First Run
+1. [ ] Install Rust (if not already installed)
+2. [ ] Install Node.js 18+ (if not already installed)
+3. [ ] Install Docker & Docker Compose
+4. [ ] Copy .env.example to .env
+
+### Initial Setup
+1. [ ] Run `cargo check` to verify compilation
+2. [ ] Run `pnpm install` in apps/web
+3. [ ] Start PostgreSQL (Docker or local)
+4. [ ] Run database migrations (TODO: create migration scripts)
+
+### Development
+1. [ ] Implement XDR decoder in crates/decoder
+2. [ ] Setup database schema and migrations
+3. [ ] Implement API endpoints with database queries
+4. [ ] Implement indexer pipeline
+5. [ ] Implement worker job system
+6. [ ] Connect frontend to API
+7. [ ] Add authentication/authorization
+8. [ ] Add comprehensive error handling
+9. [ ] Add monitoring and logging
+10. [ ] Add integration tests
+
+### Deployment
+1. [ ] Setup CI/CD pipeline
+2. [ ] Configure production environment variables
+3. [ ] Setup database backups
+4. [ ] Configure monitoring and alerting
+5. [ ] Setup log aggregation
+6. [ ] Configure auto-scaling (if needed)
 
 ## Performance
 
