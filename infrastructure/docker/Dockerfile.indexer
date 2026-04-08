@@ -1,0 +1,26 @@
+# Build stage
+FROM rust:1.75 as builder
+
+WORKDIR /app
+
+# Copy workspace files
+COPY Cargo.toml Cargo.lock ./
+COPY services/indexer ./services/indexer
+COPY crates ./crates
+
+# Build indexer service
+RUN cargo build --release -p indexer
+
+# Runtime stage
+FROM debian:bookworm-slim
+
+RUN apt-get update && apt-get install -y \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=builder /app/target/release/indexer /usr/local/bin/indexer
+
+# TODO: Add health check
+# TODO: Add graceful shutdown handling
+
+CMD ["indexer"]
